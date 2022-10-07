@@ -10,13 +10,13 @@ class MeterTest extends Component {
       };
     }
     componentDidMount() {
-      this.animatedMeter = setInterval(
-        () => this.animate(),
-        1000
-      );
+    //   this.animatedMeter = setInterval(
+    //     () => this.animate(),
+    //     1000
+    //   );
     }
     componentWillUnmount() {
-      clearInterval(this.animatedMeter);
+    //   clearInterval(this.animatedMeter);
     }
     animate(){
       this.setState({
@@ -35,13 +35,13 @@ class MeterTest extends Component {
           </div>
           <div className="group">
             <div className="title">square</div>
-            <div className="meter"><Meter percent={.2} rounded={false}/></div>
-            <div className="meter"><Meter percent={.6} rounded={false}/></div>
+            <div className="meter"><Meter percent={this.props.audioData} rounded={false}/></div>
+            <div className="meter"><Meter percent={this.props.audioData} rounded={false}/></div>
           </div>
           <div className="group">
             <div className="title">animated</div>
-            <div className="meter"><Meter percent={this.state.r1} animate={true} rounded={false}/></div>
-            <div className="meter"><Meter percent={this.state.r2} animate={true}/></div>
+            <div className="meter"><Meter percent={this.props.audioData} rounded={false}/></div>
+            <div className="meter"><Meter percent={this.props.audioData} /></div>
           </div>
           <div className="group">
             <div className="title">colorful</div>
@@ -72,12 +72,12 @@ class MeterTest extends Component {
   
     var r = rounded ? Math.ceil(height / 2) : 0;
     var w = percent ? Math.max(height, width * Math.min(percent, 1)) : 0;
-    var style = animate ? { "transition": "width 500ms, fill 250ms" } : null;
+   // var style = animate ? { "transition": "width 500ms, fill 250ms" } : null;
   
     return (
       <svg width={width} height={height} aria-label={label}>
         <rect width={width} height={height} fill="#ccc" rx={r} ry={r}/>
-        <rect width={w} height={height} fill={color} rx={r} ry={r} style={style}/>
+        <rect width={w} height={height} fill={color} rx={r} ry={r}/>
       </svg>
     );
   };
